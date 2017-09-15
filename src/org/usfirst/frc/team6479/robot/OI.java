@@ -1,8 +1,8 @@
 package org.usfirst.frc.team6479.robot;
 
+import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.Button;
-
-import org.usfirst.frc.team6479.robot.commands.ExampleCommand;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -36,4 +36,27 @@ public class OI {
 	// Start the command when the button is released and let it run the command
 	// until it is finished as determined by it's isFinished method.
 	// button.whenReleased(new ExampleCommand());
+
+	// refrence to the xbox controller
+	private XboxController xbox = new XboxController(0);
+
+	public OI() {
+		// indiviual refrences to the xbox controllers buttons, does not include
+		// triggers, joysticks, or dpad
+		JoystickButton aButton = new JoystickButton(xbox, 1);
+		JoystickButton bButton = new JoystickButton(xbox, 2);
+		JoystickButton xButton = new JoystickButton(xbox, 3);
+		JoystickButton yButton = new JoystickButton(xbox, 4);
+		JoystickButton leftBumperButton = new JoystickButton(xbox, 5);
+		JoystickButton rigthBumperButton = new JoystickButton(xbox, 6);
+		JoystickButton backButton = new JoystickButton(xbox, 7);
+		JoystickButton startButton = new JoystickButton(xbox, 8);
+		JoystickButton leftStickButton = new JoystickButton(xbox, 9);
+		JoystickButton rightStickButton = new JoystickButton(xbox, 10);
+	}
+
+	public XboxController getXbox() {
+		return xbox;
+	}
+
 }
