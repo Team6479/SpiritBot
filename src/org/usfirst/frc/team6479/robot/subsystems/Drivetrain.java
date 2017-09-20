@@ -10,13 +10,13 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class Drivetrain extends Subsystem {
 	
-	private Spark leftMotor1 = new Spark(RobotMap.leftMotor1);
-	private Spark leftMotor2 = new Spark(RobotMap.leftMotor2);
-	private Spark rightMotor1 = new Spark(RobotMap.rightMotor1);
-	private Spark rightMotor2 = new Spark(RobotMap.rightMotor2);
+	private Spark leftMotorFront = new Spark(RobotMap.leftMotorFront);
+	private Spark leftMotorBack = new Spark(RobotMap.leftMotorBack);
+	private Spark rightMotorFront = new Spark(RobotMap.rightMotorFront);
+	private Spark rightMotorBack = new Spark(RobotMap.rightMotorBack);
 	
-	private MultiSpeedController leftSide = new MultiSpeedController(leftMotor1, leftMotor2);
-	private MultiSpeedController rightSide = new MultiSpeedController(rightMotor1, rightMotor2);
+	private MultiSpeedController leftSide = new MultiSpeedController(true, leftMotorFront, leftMotorBack);
+	private MultiSpeedController rightSide = new MultiSpeedController(false, rightMotorFront, rightMotorBack);
 	
 	private CustomDrive drive = new CustomDrive(leftSide, rightSide);
 
