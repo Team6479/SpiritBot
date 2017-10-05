@@ -1,3 +1,4 @@
+#Build Locations
 /bin/
-.classpath
-.project
+/build/
+/dist/
