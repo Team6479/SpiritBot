@@ -16,6 +16,15 @@ public class MultiSpeedController implements SpeedController {
 			speedController.setInverted(inverted);
 		}
 		set(0.0);
+	}	
+	public MultiSpeedController(boolean inverted, SpeedController... speedControllers) {
+		this.speedControllers = speedControllers;
+		//defualt state
+		this.inverted = inverted;
+		for(SpeedController speedController: speedControllers) {
+			speedController.setInverted(inverted);
+		}
+		set(0.0);
 	}
 	@Override
 	public double get() {
