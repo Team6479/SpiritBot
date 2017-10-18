@@ -18,15 +18,6 @@ public class Robot extends IterativeRobot {
 		drivetrain = new Drivetrain();
 	}
 	@Override
-	public void disabledInit() {
-
-	}
-	@Override
-	public void disabledPeriodic() {
-		//run commands
-		Scheduler.getInstance().run();
-	}
-	@Override
 	public void teleopInit() {
 
 	}
