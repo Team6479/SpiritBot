@@ -8,10 +8,11 @@ package org.usfirst.frc.team6479.robot;
  */
 public class RobotMap {
 	
-	public static int leftMotorFront = 0;
-	public static int leftMotorBack = 1;
-	public static int rightMotorFront = 2;
-	public static int rightMotorBack = 3;
-		
+	//PWM
+	public static final int leftMotorFront = 0;
+	public static final int leftMotorBack = 1;
+	public static final int rightMotorFront = 2;
+	public static final int rightMotorBack = 3;
+	//END PWM
 		
 }

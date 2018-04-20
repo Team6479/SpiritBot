@@ -1,4 +1,25 @@
-#Build Locations
-/bin/
-/build/
-/dist/
+# Buid Paths
+bin/
+build/
+out
+output/
+target/
+
+# Lib Path
+lib/
+
+# Gradle Files
+.gradle/
+
+# IDE Files
+# Eclipse
+.classpath
+.project
+.settings/
+# IntelliJ
+*.iml
+.idea/
+
+# Other
+.ant_targets
+.vscode/

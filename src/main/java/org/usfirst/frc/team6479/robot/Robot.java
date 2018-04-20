@@ -5,7 +5,6 @@ import org.usfirst.frc.team6479.robot.subsystems.Drivetrain;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
-import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 public class Robot extends IterativeRobot {
 
@@ -24,9 +23,5 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
-	}
-	@Override
-	public void testPeriodic() {
-		LiveWindow.run();
 	}
 }
