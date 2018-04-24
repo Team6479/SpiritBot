@@ -25,10 +25,10 @@ public class Drivetrain extends Subsystem implements SafeSubsystem {
 
 	public Drivetrain() {
 
-		leftBack = new Spark(RobotMap.leftMotorBack);
-		rightBack = new Spark(RobotMap.rightMotorBack);
-		leftFront = new Spark(RobotMap.leftMotorFront);
-		rightFront = new Spark(RobotMap.rightMotorFront);
+		leftBack = new Spark(RobotMap.leftMotorBackPort);
+		rightBack = new Spark(RobotMap.rightMotorBackPort);
+		leftFront = new Spark(RobotMap.leftMotorFrontPort);
+		rightFront = new Spark(RobotMap.rightMotorFrontPort);
 
 		leftSide = new SpeedControllerGroup(leftBack, leftFront);
 		rightSide = new SpeedControllerGroup(rightBack, rightFront);

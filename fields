@@ -1,0 +1,11 @@
+#!/usr/bin/perl
+
+$pulse = 1005;
+while(<>) {
+	chomp;
+	s/"//g;
+	s/,//g;
+	s/ //g;
+	print "$_" . "(" . "$pulse" . "),\n";
+	$pulse += 10;
+}	

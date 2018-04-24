@@ -9,10 +9,17 @@ package org.usfirst.frc.team6479.robot;
 public class RobotMap {
 	
 	//PWM
-	public static final int leftMotorFront = 0;
-	public static final int leftMotorBack = 1;
-	public static final int rightMotorFront = 2;
-	public static final int rightMotorBack = 3;
+	public static final int leftMotorFrontPort = 0;
+	public static final int leftMotorBackPort = 1;
+	public static final int rightMotorFrontPort = 2;
+	public static final int rightMotorBackPort = 3;
+	public static final int lightstripPort = 3;
+	public static final int spotlightPort = 3;
 	//END PWM
-		
+	
+	//RELAY
+	public static final int cannonSolenoidPort = 0;
+	//END RELAY
+	
+	
 }
