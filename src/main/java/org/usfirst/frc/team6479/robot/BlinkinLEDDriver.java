@@ -1,34 +1,28 @@
 package org.usfirst.frc.team6479.robot;
 
-import edu.wpi.first.wpilibj.PWM;
+import edu.wpi.first.wpilibj.Spark;
 
-//this is a helper class that wraps around a PWM object to control a REV Robotics BlinkinLED Driver
-public class BlinkinLEDDriver extends PWM {
+//this is a helper class that wraps around a Spark object to control a REV Robotics BlinkinLED Driver
+public class BlinkinLEDDriver extends Spark {
 
 	public BlinkinLEDDriver(int port) {
 		super(port);
 	}
 	
 	//gets the current value of the LED
-	public int get() {
-		return getRaw();
+	public double get() {
+		return super.get();
 		
 	}
-	public void set(int value) {
-		if(value < 0) {
-			value = 0;
-		}
-		if(value > 255) {
-			value = 255;
-		}
-		setRaw(value);
+	public void set(double value) {
+		super.set(value);
 	}
 	public void set(Mode mode) {
-		set(mode.value);
+		this.set(mode.value);
 	}
 	//NOTE: not efficent
 	public Mode getMode() {
-		int current = get();
+		double current = this.get();
 		Mode[] values = Mode.values();
 		for (Mode m: values)
 		{
@@ -38,114 +32,134 @@ public class BlinkinLEDDriver extends PWM {
 		}
 		return Mode.UNKNOWN;
 	}
+	public void cycleForward() {
+		double current = get();
+		double next = current + Mode.width;
+		if(next >= Mode.max) {
+			next = Mode.min;
+		}
+		this.set(next);
+	}
+	public void cycleBackward() {
+		double current = get();
+		double next = current - Mode.width;
+		if(next <= Mode.min) {
+			next = Mode.max;
+		}
+		this.set(next);
+	}
+	
 
 	enum Mode {
 		
-		RainbowRainbowPalette(1005),
-		RainbowPartyPalette(1015),
-		RainbowOceanPalette(1025),
-		RainbowLavePalette(1035),
-		RainbowForestPalette(1045),
-		RainbowwithGlitter(1055),
-		Confetti(1065),
-		ShotRed(1075),
-		ShotBlue(1085),
-		ShotWhite(1095),
-		SinelonRainbowPalette(1105),
-		SinelonPartyPalette(1115),
-		SinelonOceanPalette(1125),
-		SinelonLavaPalette(1135),
-		SinelonForestPalette(1145),
-		BeatsperMinuteRainbowPalette(1155),
-		BeatsperMinutePartyPalette(1165),
-		BeatsperMinuteOceanPalette(1175),
-		BeatsperMinuteLavaPalette(1185),
-		BeatsperMinuteForestPalette(1195),
-		FireMedium(1205),
-		FireLarge(1215),
-		TwinklesRainbowPalette(1225),
-		TwinklesPartyPalette(1235),
-		TwinklesOceanPalette(1245),
-		TwinklesLavaPalette(1255),
-		TwinklesForestPalette(1265),
-		ColorWavesRainbowPalette(1275),
-		ColorWavesPartyPalette(1285),
-		ColorWavesOceanPalette(1295),
-		ColorWavesLavaPalette(1305),
-		ColorWavesForestPalette(1315),
-		LarsonScannerRed(1325),
-		LarsonScannerGray(1335),
-		LightChaseRed(1345),
-		LightChaseBlue(1355),
-		LightChaseGray(1365),
-		HeartbeatRed(1375),
-		HeartbeatBlue(1385),
-		HeartbeatWhite(1395),
-		HeartbeatGray(1405),
-		BreathRed(1415),
-		BreathBlue(1425),
-		BreathGray(1435),
-		StrobeRed(1445),
-		StrobeBlue(1455),
-		StrobeGold(1465),
-		StrobeWhite(1475),
-		EndtoEndBlendtoBlack1(1485),
-		LarsonScanner1(1495),
-		LightChase1(1505),
-		HeartbeatSlow1(1515),
-		HeartbeatMedium1(1525),
-		HeartbeatFast1(1535),
-		BreathSlow1(1545),
-		BreathFast1(1555),
-		Shot1(1565),
-		Strobe1(1575),
-		EndtoEndBlendtoBlack2(1585),
-		LarsonScanner2(1595),
-		LightChase2(1605),
-		HeartbeatSlow2(1615),
-		HeartbeatMedium2(1625),
-		HeartbeatFast2(1635),
-		BreathSlow2(1645),
-		BreathFast2(1655),
-		Shot2(1665),
-		Strobe2(1675),
-		SparkleColor1onColor2(1685),
-		SparkleColor2onColor1(1695),
-		ColorGradientColor1and2(1705),
-		BeatsperMinuteColor1and2(1715),
-		EndtoEndBlendColor1to2(1725),
-		EndtoEndBlend(1735),
-		Color1andColor2noblendingSetupPattern(1745),
-		TwinklesColor1and2(1755),
-		ColorWavesColor1and2(1765),
-		SinelonColor1and2(1775),
-		HotPink(1785),
-		Darkred(1795),
-		Red(1805),
-		RedOrange(1815),
-		Orange(1825),
-		Gold(1835),
-		Yellow(1845),
-		LawnGreen(1855),
-		Lime(1865),
-		DarkGreen(1875),
-		Green(1885),
-		BlueGreen(1895),
-		Aqua(1905),
-		SkyBlue(1915),
-		DarkBlue(1925),
-		Blue(1935),
-		BlueViolet(1945),
-		Violet(1955),
-		White(1965),
-		Gray(1975),
-		DarkGray(1985),
-		Black(1995),
-		UNKNOWN(-1);
+		RainbowRainbowPalette(-0.99),
+		RainbowPartyPalette(-0.97),
+		RainbowOceanPalette(-0.95),
+		RainbowLavePalette(-0.93),
+		RainbowForestPalette(-0.91),
+		RainbowwithGlitter(-0.89),
+		Confetti(-0.87),
+		ShotRed(-0.85),
+		ShotBlue(-0.83),
+		ShotWhite(-0.81),
+		SinelonRainbowPalette(-0.79),
+		SinelonPartyPalette(-0.77),
+		SinelonOceanPalette(-0.75),
+		SinelonLavaPalette(-0.73),
+		SinelonForestPalette(-0.71),
+		BeatsperMinuteRainbowPalette(-0.69),
+		BeatsperMinutePartyPalette(-0.67),
+		BeatsperMinuteOceanPalette(-0.65),
+		BeatsperMinuteLavaPalette(-0.63),
+		BeatsperMinuteForestPalette(-0.61),
+		FireMedium(-0.59),
+		FireLarge(-0.57),
+		TwinklesRainbowPalette(-0.55),
+		TwinklesPartyPalette(-0.53),
+		TwinklesOceanPalette(-0.51),
+		TwinklesLavaPalette(-0.49),
+		TwinklesForestPalette(-0.47),
+		ColorWavesRainbowPalette(-0.45),
+		ColorWavesPartyPalette(-0.43),
+		ColorWavesOceanPalette(-0.41),
+		ColorWavesLavaPalette(-0.39),
+		ColorWavesForestPalette(-0.37),
+		LarsonScannerRed(-0.35),
+		LarsonScannerGray(-0.33),
+		LightChaseRed(-0.31),
+		LightChaseBlue(-0.29),
+		LightChaseGray(-0.27),
+		HeartbeatRed(-0.25),
+		HeartbeatBlue(-0.23),
+		HeartbeatWhite(-0.21),
+		HeartbeatGray(-0.19),
+		BreathRed(-0.17),
+		BreathBlue(-0.15),
+		BreathGray(-0.13),
+		StrobeRed(-0.11),
+		StrobeBlue(-0.09),
+		StrobeGold(-0.07),
+		StrobeWhite(-0.05),
+		EndtoEndBlendtoBlack1(-0.03),
+		LarsonScanner1(-0.01),
+		LightChase1(0.01),
+		HeartbeatSlow1(0.03),
+		HeartbeatMedium1(0.05),
+		HeartbeatFast1(0.07),
+		BreathSlow1(0.09),
+		BreathFast1(0.11),
+		Shot1(0.13),
+		Strobe1(0.15),
+		EndtoEndBlendtoBlack2(0.17),
+		LarsonScanner2(0.19),
+		LightChase2(0.21),
+		HeartbeatSlow2(0.23),
+		HeartbeatMedium2(0.25),
+		HeartbeatFast2(0.27),
+		BreathSlow2(0.29),
+		BreathFast2(0.31),
+		Shot2(0.33),
+		Strobe2(0.35),
+		SparkleColor1onColor2(0.37),
+		SparkleColor2onColor1(0.39),
+		ColorGradientColor1and2(0.41),
+		BeatsperMinuteColor1and2(0.43),
+		EndtoEndBlendColor1to2(0.45),
+		EndtoEndBlend(0.47),
+		Color1andColor2noblendingSetupPattern(0.49),
+		TwinklesColor1and2(0.51),
+		ColorWavesColor1and2(0.53),
+		SinelonColor1and2(0.55),
+		HotPink(0.57),
+		Darkred(0.59),
+		Red(0.61),
+		RedOrange(0.63),
+		Orange(0.65),
+		Gold(0.67),
+		Yellow(0.69),
+		LawnGreen(0.71),
+		Lime(0.73),
+		DarkGreen(0.75),
+		Green(0.77),
+		BlueGreen(0.79),
+		Aqua(0.81),
+		SkyBlue(0.83),
+		DarkBlue(0.85),
+		Blue(0.87),
+		BlueViolet(0.89),
+		Violet(0.91),
+		White(0.93),
+		Gray(0.95),
+		DarkGray(0.97),
+		Black(0.99),
+		UNKNOWN(0);
 		
-		Mode(int value) {
+		Mode(double value) {
 			this.value = value;
 		}
-		int value;
+		double value;
+		static final double width = 0.02;
+		static final double max = 0.99;
+		static final double min = -0.99;
 	}
 }

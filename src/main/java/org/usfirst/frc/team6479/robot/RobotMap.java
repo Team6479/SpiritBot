@@ -13,12 +13,12 @@ public class RobotMap {
 	public static final int leftMotorBackPort = 1;
 	public static final int rightMotorFrontPort = 2;
 	public static final int rightMotorBackPort = 3;
-	public static final int lightstripPort = 3;
-	public static final int spotlightPort = 3;
+	public static final int lightstripPort = 4;
 	//END PWM
 	
 	//RELAY
 	public static final int cannonSolenoidPort = 0;
+	public static final int spotlightPort = 1;
 	//END RELAY
 	
 	

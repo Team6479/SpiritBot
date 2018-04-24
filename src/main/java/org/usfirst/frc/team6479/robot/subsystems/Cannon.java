@@ -1,23 +1,18 @@
 package org.usfirst.frc.team6479.robot.subsystems;
 
 import org.usfirst.frc.team6479.robot.RobotMap;
+import org.usfirst.frc.team6479.robot.Spike;
 
 import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 //the cannon
-public class Cannon extends Subsystem implements SafeSubsystem {
+public class Cannon extends Subsystem {
 	
-	private Relay solenoid;
-	
+	private Spike solenoid;
 	
 	public Cannon() {
-		solenoid = new Relay(RobotMap.cannonSolenoidPort);
-	}
-
-	@Override
-	public void stop() {
-		
+		solenoid = new Spike(RobotMap.cannonSolenoidPort);
 	}
 
 	@Override
