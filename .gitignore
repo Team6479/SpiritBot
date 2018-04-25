@@ -18,6 +18,8 @@ lib/
 .settings/
 # IntelliJ
 *.iml
+*.ipr
+*.iws
 .idea/
 
 # Other
