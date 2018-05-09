@@ -26,7 +26,7 @@ public class BlinkinLEDDriver extends Spark {
 		Mode[] values = Mode.values();
 		for (Mode m: values)
 		{
-			if(current == m.value) {
+			if(Math.abs(current - m.value) <= 0.001) {
 				return m;
 			}
 		}
@@ -38,6 +38,9 @@ public class BlinkinLEDDriver extends Spark {
 		if(next >= Mode.max) {
 			next = Mode.min;
 		}
+		next *= 100.0;
+		next = Math.round(next);
+		next /= 100.0;
 		this.set(next);
 	}
 	public void cycleBackward() {
@@ -46,11 +49,14 @@ public class BlinkinLEDDriver extends Spark {
 		if(next <= Mode.min) {
 			next = Mode.max;
 		}
+		next *= 100.0;
+		next = Math.round(next);
+		next /= 100.0;
 		this.set(next);
 	}
 	
 
-	enum Mode {
+	public enum Mode {
 		
 		RainbowRainbowPalette(-0.99),
 		RainbowPartyPalette(-0.97),

@@ -17,10 +17,12 @@ public class Robot extends IterativeRobot {
 
 	@Override
 	public void robotInit() {
-		oi = new OI();
 		drivetrain = new Drivetrain();
 		cannon = new Cannon();
 		lights = new Lights();
+
+		//OI Must be last
+		oi = new OI();
 	}
 	@Override
 	public void teleopInit() {
@@ -29,9 +31,10 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
+		System.out.println(lights.getMode().value);
 	}
 	@Override
 	public void disabledPeriodic() {
-		
+		lights.setMode(BlinkinLEDDriver.Mode.Orange);
 	}
 }

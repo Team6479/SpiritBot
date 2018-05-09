@@ -19,4 +19,8 @@ public class Cannon extends Subsystem {
 	protected void initDefaultCommand() {
 		
 	}
+
+	public void toggle() {
+		solenoid.toggle();
+	}
 }

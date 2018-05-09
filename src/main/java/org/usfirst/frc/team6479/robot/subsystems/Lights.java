@@ -37,5 +37,11 @@ public class Lights extends Subsystem {
 	public void cycleBackwardLightstrip() {
 		lightstrip.cycleBackward();
 	}
+	public void setMode(BlinkinLEDDriver.Mode mode) {
+		lightstrip.set(mode);
+	}
+	public BlinkinLEDDriver.Mode getMode() {
+		return lightstrip.getMode();
+	}
 
 }

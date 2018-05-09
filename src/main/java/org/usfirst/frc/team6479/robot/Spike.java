@@ -11,21 +11,21 @@ public class Spike extends Relay {
 		//M+ 12V, M- GND
 		set(Value.kForward);
 		//default is off
-		set(Value.kOff);
+		set(Value.kReverse);
 	}
 	public void toggle() {
-		if(get() == Value.kOff) {
-			set(Value.kOn);
+		if(get() == Value.kReverse) {
+			set(Value.kForward);
 		}
 		else {
-			set(Value.kOff);
+			set(Value.kReverse);
 		}
 	}
 	public void on() {
-		set(Value.kOn);
+		set(Value.kForward);
 	}
 	public void off() {
-		set(Value.kOff);
+		set(Value.kReverse);
 	}
 
 }

@@ -2,6 +2,7 @@ package org.usfirst.frc.team6479.robot;
 
 import org.usfirst.frc.team6479.robot.commands.CycleLightBackward;
 import org.usfirst.frc.team6479.robot.commands.CycleLightForward;
+import org.usfirst.frc.team6479.robot.commands.FireCannon;
 import org.usfirst.frc.team6479.robot.commands.ToggleSpotlight;
 
 import edu.wpi.first.wpilibj.XboxController;
@@ -21,6 +22,7 @@ public class OI {
 		xbox = new XboxController(0);
 		//to fire robot
 		aButton = new ButtonTracker(xbox, XboxMap.AButton);
+		aButton.toggleWhenPressed(new FireCannon());
 		
 		//toggle forwrd through light strip
 		bButton = new ButtonTracker(xbox, XboxMap.BButton);
