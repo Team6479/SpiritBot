@@ -23,4 +23,7 @@ public class Cannon extends Subsystem {
 	public void toggle() {
 		solenoid.toggle();
 	}
+	public Spike getSolenoid() {
+		return solenoid;
+	}
 }
