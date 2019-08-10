@@ -15,7 +15,9 @@ package frc.robot;
  */
 public class RobotMap {
   // Drivetrain Motors
-
   public static final int DRIVETRAIN_LEFT = 0;
   public static final int DRIVETRAIN_RIGHT = 1;
+
+  //Solenoid
+  public static final int SOLENOID_CANNON = 2;
 }
