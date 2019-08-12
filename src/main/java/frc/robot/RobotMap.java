@@ -20,4 +20,7 @@ public class RobotMap {
 
   //Solenoid
   public static final int SOLENOID_CANNON = 2;
+
+  //Cannon Angle
+  public static final int ANGLE_CANNON = 2;
 }

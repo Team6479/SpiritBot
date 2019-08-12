@@ -10,6 +10,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import frc.robot.subsystems.Cannon;
+import frc.robot.subsystems.CannonAngle;
 import frc.robot.subsystems.Drivetrain;
 
 /**
@@ -22,6 +23,7 @@ import frc.robot.subsystems.Drivetrain;
 public class Robot extends TimedRobot {
   public static Drivetrain drivetrain;
   public static Cannon cannon;
+  public static CannonAngle cannonAngle;
   public static OI oi;
   
   /**
@@ -33,6 +35,7 @@ public class Robot extends TimedRobot {
     oi = new OI();
     drivetrain = new Drivetrain();
     cannon = new Cannon();
+    cannonAngle = new CannonAngle();
   }
 
   /**
