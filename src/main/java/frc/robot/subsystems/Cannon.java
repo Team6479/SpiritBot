@@ -7,13 +7,11 @@
 
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.Solenoid;
+import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
 
-/**
- * Add your docs here.
- */
+/** Add your docs here. */
 public class Cannon extends Subsystem {
   private Solenoid cannonSol;
 
@@ -39,6 +37,5 @@ public class Cannon extends Subsystem {
   }
 
   @Override
-  public void initDefaultCommand() {
-  }
+  public void initDefaultCommand() {}
 }

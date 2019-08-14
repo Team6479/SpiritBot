@@ -11,9 +11,7 @@ import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
 
-/**
- * Add your docs here.
- */
+/** Add your docs here. */
 public class CannonAngle extends Subsystem {
   private Spark angle;
 
@@ -22,7 +20,7 @@ public class CannonAngle extends Subsystem {
   }
 
   public void set(double right, double left) {
-    angle.set(right-left);
+    angle.set(right - left);
   }
 
   @Override

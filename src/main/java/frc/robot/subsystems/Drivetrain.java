@@ -14,9 +14,7 @@ import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import frc.robot.RobotMap;
 import frc.robot.commands.TeleopDrive;
 
-/**
- * Add your docs here.
- */
+/** Add your docs here. */
 public class Drivetrain extends Subsystem {
   private SpeedController left;
   private SpeedController right;
