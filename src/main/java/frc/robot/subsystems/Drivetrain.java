@@ -9,6 +9,7 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.SpeedController;
+import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import frc.robot.RobotMap;
@@ -16,14 +17,23 @@ import frc.robot.commands.TeleopDrive;
 
 /** Add your docs here. */
 public class Drivetrain extends Subsystem {
-  private SpeedController left;
-  private SpeedController right;
+  private SpeedController leftFront;
+  private SpeedController rightFront;
+  private SpeedController leftBack;
+  private SpeedController rightBack;
+  private SpeedControllerGroup left;
+  private SpeedControllerGroup right;
 
   private DifferentialDrive drive;
 
   public Drivetrain() {
-    left = new Spark(RobotMap.DRIVETRAIN_LEFT);
-    right = new Spark(RobotMap.DRIVETRAIN_RIGHT);
+    leftFront = new Spark(RobotMap.DRIVETRAIN_LEFT_FRONT);
+    rightFront = new Spark(RobotMap.DRIVETRAIN_RIGHT_FRONT);
+    leftBack = new Spark(RobotMap.DRIVETRAIN_LEFT_BACK);
+    rightBack = new Spark(RobotMap.DRIVETRAIN_RIGHT_BACK);
+
+    left = new SpeedControllerGroup(leftFront, leftBack);
+    right = new SpeedControllerGroup(rightFront, rightBack);
 
     drive = new DifferentialDrive(left, right);
   }

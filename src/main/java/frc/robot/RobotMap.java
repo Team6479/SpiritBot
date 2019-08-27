@@ -14,11 +14,13 @@ package frc.robot;
  */
 public class RobotMap {
   // Drivetrain Motors
-  public static final int DRIVETRAIN_LEFT = 0;
-  public static final int DRIVETRAIN_RIGHT = 1;
+  public static final int DRIVETRAIN_LEFT_FRONT = 0;
+  public static final int DRIVETRAIN_RIGHT_FRONT = 2;
+  public static final int DRIVETRAIN_LEFT_BACK = 1;
+  public static final int DRIVETRAIN_RIGHT_BACK = 3;
 
   // Solenoid
-  public static final int SOLENOID_CANNON = 2;
+  public static final int SOLENOID_CANNON = 0;
 
   // Cannon Angle
   public static final int ANGLE_CANNON = 2;

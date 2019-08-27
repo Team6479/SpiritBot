@@ -13,7 +13,7 @@ import frc.robot.Robot;
 
 public class CannonAngle extends Command {
   public CannonAngle() {
-    requires(Robot.cannonAngle);
+    // requires(Robot.cannonAngle);
   }
 
   // Called just before this Command runs the first time
@@ -26,7 +26,7 @@ public class CannonAngle extends Command {
     double left = Robot.oi.xbox.getTriggerAxis(Hand.kLeft);
     double right = Robot.oi.xbox.getTriggerAxis(Hand.kRight);
     if (!(right != 0 && left != 0)) {
-      Robot.cannonAngle.set(right, left);
+      // Robot.cannonAngle.set(right, left);
     }
   }
 

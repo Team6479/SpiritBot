@@ -22,7 +22,7 @@ import frc.robot.subsystems.Drivetrain;
 public class Robot extends TimedRobot {
   public static Drivetrain drivetrain;
   public static Cannon cannon;
-  public static CannonAngle cannonAngle;
+  // public static CannonAngle cannonAngle;
   public static OI oi;
 
   /**
@@ -31,10 +31,11 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotInit() {
-    oi = new OI();
     drivetrain = new Drivetrain();
     cannon = new Cannon();
-    cannonAngle = new CannonAngle();
+    // cannonAngle = new CannonAngle();
+
+    oi = new OI();
   }
 
   /**
