@@ -1,0 +1,10 @@
+---
+enabled: true
+auto: false
+remote_files: []
+comments: true
+statuses: true
+request_review: null
+labels: []
+restylers:
+  - google-java-format

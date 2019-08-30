@@ -13,13 +13,12 @@ import frc.robot.Robot;
 
 public class CannonAngle extends Command {
   public CannonAngle() {
-    requires(Robot.cannonAngle);
+    // requires(Robot.cannonAngle);
   }
 
   // Called just before this Command runs the first time
   @Override
-  protected void initialize() {
-  }
+  protected void initialize() {}
 
   // Called repeatedly when this Command is scheduled to run
   @Override
@@ -27,7 +26,7 @@ public class CannonAngle extends Command {
     double left = Robot.oi.xbox.getTriggerAxis(Hand.kLeft);
     double right = Robot.oi.xbox.getTriggerAxis(Hand.kRight);
     if (!(right != 0 && left != 0)) {
-      Robot.cannonAngle.set(right, left);
+      // Robot.cannonAngle.set(right, left);
     }
   }
 
@@ -39,12 +38,10 @@ public class CannonAngle extends Command {
 
   // Called once after isFinished returns true
   @Override
-  protected void end() {
-  }
+  protected void end() {}
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
-  protected void interrupted() {
-  }
+  protected void interrupted() {}
 }

@@ -7,31 +7,29 @@
 
 package frc.robot.subsystems;
 
+import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.Solenoid;
 import frc.robot.RobotMap;
 
-/**
- * Add your docs here.
- */
+/** Add your docs here. */
 public class Cannon extends Subsystem {
-  private Solenoid cannonSol;
+  private Relay cannonSol;
 
   public Cannon() {
-    cannonSol = new Solenoid(RobotMap.SOLENOID_CANNON);
+    cannonSol = new Relay(RobotMap.SOLENOID_CANNON);
   }
 
   public void open() {
-    cannonSol.set(true);
+    cannonSol.set(Relay.Value.kOn);
   }
 
-  public void closed() {
-    cannonSol.set(false);
+  public void close() {
+    cannonSol.set(Relay.Value.kOff);
   }
 
   public void toggle() {
-    boolean state = cannonSol.get();
-    if (state) {
+    Relay.Value state = cannonSol.get();
+    if (state == Relay.Value.kOn) {
       this.close();
     } else {
       this.open();
@@ -39,6 +37,5 @@ public class Cannon extends Subsystem {
   }
 
   @Override
-  public void initDefaultCommand() {
-  }
+  public void initDefaultCommand() {}
 }

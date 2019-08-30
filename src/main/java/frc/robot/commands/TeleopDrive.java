@@ -18,13 +18,14 @@ public class TeleopDrive extends Command {
 
   // Called just before this Command runs the first time
   @Override
-  protected void initialize() {
-  }
+  protected void initialize() {}
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.drivetrain.getDrive().arcadeDrive(Robot.oi.xbox.getY(Hand.kLeft), Robot.oi.xbox.getX(Hand.kRight));
+    Robot.drivetrain
+        .getDrive()
+        .arcadeDrive(Robot.oi.xbox.getY(Hand.kLeft), Robot.oi.xbox.getX(Hand.kRight));
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -33,15 +34,12 @@ public class TeleopDrive extends Command {
     return false;
   }
 
-  
   // Called once after isFinished returns true
   @Override
-  protected void end() {
-  }
+  protected void end() {}
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
-  protected void interrupted() {
-  }
+  protected void interrupted() {}
 }
