@@ -20,8 +20,6 @@ public class OI {
 
   public OI() {
     xbox.getButton(Buttons.kBumperRight)
-        .whenPressed(new InstantCommand(Robot.cannon, Robot.cannon::open));
-    xbox.getButton(Buttons.kBumperRight)
-        .whenReleased(new InstantCommand(Robot.cannon, Robot.cannon::close));
+        .whenPressed(new InstantCommand(Robot.cannon, Robot.cannon::toggle));
   }
 }

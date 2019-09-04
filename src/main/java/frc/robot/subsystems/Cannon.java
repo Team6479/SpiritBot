@@ -13,23 +13,22 @@ import frc.robot.RobotMap;
 
 /** Add your docs here. */
 public class Cannon extends Subsystem {
-  private Relay cannonSol;
+  private Relay cannonRelay;
 
   public Cannon() {
-    cannonSol = new Relay(RobotMap.SOLENOID_CANNON);
+    cannonRelay = new Relay(RobotMap.CANNON_RELAY);
   }
 
   public void open() {
-    cannonSol.set(Relay.Value.kOn);
+    cannonRelay.set(Relay.Value.kForward);
   }
 
   public void close() {
-    cannonSol.set(Relay.Value.kOff);
+    cannonRelay.set(Relay.Value.kOff);
   }
 
   public void toggle() {
-    Relay.Value state = cannonSol.get();
-    if (state == Relay.Value.kOn) {
+    if (cannonRelay.get() == Relay.Value.kForward) {
       this.close();
     } else {
       this.open();

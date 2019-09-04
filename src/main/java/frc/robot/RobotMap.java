@@ -20,7 +20,7 @@ public class RobotMap {
   public static final int DRIVETRAIN_RIGHT_BACK = 3;
 
   // Solenoid
-  public static final int SOLENOID_CANNON = 0;
+  public static final int CANNON_RELAY = 0;
 
   // Cannon Angle
   public static final int ANGLE_CANNON = 2;
