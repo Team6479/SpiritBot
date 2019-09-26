@@ -9,6 +9,7 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.subsystems.Cannon;
 import frc.robot.subsystems.CannonAngle;
 import frc.robot.subsystems.Drivetrain;
@@ -46,7 +47,9 @@ public class Robot extends TimedRobot {
    * SmartDashboard integrated updating.
    */
   @Override
-  public void robotPeriodic() {}
+  public void robotPeriodic() {
+    SmartDashboard.putBoolean("Ready to Fire?", cannon.getOpen()); // red is danger
+  }
 
   /**
    * This function is called once each time the robot enters Disabled mode. You can use it to reset
