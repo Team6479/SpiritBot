@@ -25,7 +25,7 @@ public class Robot extends TimedRobot {
   public static Drivetrain drivetrain;
   public static Cannon cannon;
   public static CannonAngle cannonAngle;
-  public LedLighting ledLighting;
+  public static LedLighting ledLighting;
   // public static CannonAngle cannonAngle;
   public static OI oi;
 
