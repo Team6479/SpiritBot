@@ -27,8 +27,12 @@ public class Cannon extends Subsystem {
     cannonRelay.set(Relay.Value.kOff);
   }
 
+  public boolean getOpen() {
+    return cannonRelay.get() == Relay.Value.kForward;
+  }
+
   public void toggle() {
-    if (cannonRelay.get() == Relay.Value.kForward) {
+    if (this.getOpen()) {
       this.close();
     } else {
       this.open();
