@@ -14,13 +14,21 @@ import frc.robot.RobotMap;
 /** Interacts with the (horribly designed) Blinkin' LED Driver from REV */
 public class LedLighting extends Subsystem {
   private Spark blinkin;
-  public Mode idleMode;
-  public Mode loadedMode;
+  private Mode idleMode;
+  private Mode loadedMode;
 
   public LedLighting() {
     blinkin = new Spark(RobotMap.REV_BLINKIN);
     idleMode = Mode.Orange;
     loadedMode = Mode.EndtoEndBlend;
+  }
+
+  public void setIdleMode(Mode mode) {
+    idleMode = mode;
+  }
+
+  public void setLoadedMode(Mode mode) {
+    loadedMode = mode;
   }
 
   public double get() {
