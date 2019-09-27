@@ -44,7 +44,7 @@ public class LedLighting extends Subsystem {
    * contain everything necessary within a subsystem, rather than a seperate class. This shouldn't
    * negatively impact the funtionality we use.
    */
-  public enum Mode {
+  public static enum Mode {
     RainbowRainbowPalette(-0.99),
     RainbowPartyPalette(-0.97),
     RainbowOceanPalette(-0.95),
