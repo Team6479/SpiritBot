@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.subsystems.Cannon;
 import frc.robot.subsystems.CannonAngle;
 import frc.robot.subsystems.Drivetrain;
+import frc.robot.subsystems.LedLighting;
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
@@ -24,6 +25,8 @@ public class Robot extends TimedRobot {
   public static Drivetrain drivetrain;
   public static Cannon cannon;
   public static CannonAngle cannonAngle;
+  public LedLighting ledLighting;
+  // public static CannonAngle cannonAngle;
   public static OI oi;
 
   /**
@@ -35,6 +38,9 @@ public class Robot extends TimedRobot {
     drivetrain = new Drivetrain();
     cannon = new Cannon();
     cannonAngle = new CannonAngle();
+    ledLighting = new LedLighting();
+    ledLighting.set(LedLighting.Mode.Orange);
+    // cannonAngle = new CannonAngle();
 
     oi = new OI();
   }
