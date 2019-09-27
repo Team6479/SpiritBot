@@ -14,9 +14,13 @@ import frc.robot.RobotMap;
 /** Interacts with the (horribly designed) Blinkin' LED Driver from REV */
 public class LedLighting extends Subsystem {
   private Spark blinkin;
+  public Mode idleMode;
+  public Mode loadedMode;
 
   public LedLighting() {
     blinkin = new Spark(RobotMap.REV_BLINKIN);
+    idleMode = Mode.Orange;
+    loadedMode = Mode.EndtoEndBlend;
   }
 
   public double get() {
@@ -29,6 +33,10 @@ public class LedLighting extends Subsystem {
 
   public void set(Mode mode) {
     this.set(mode.value);
+  }
+
+  public void toggle() {
+    this.set((this.get() == idleMode.value) ? loadedMode : idleMode);
   }
 
   @Override

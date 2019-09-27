@@ -9,7 +9,8 @@ package frc.robot;
 
 import com.team6479.lib.controllers.CBXboxController;
 import com.team6479.lib.controllers.CBXboxController.Buttons;
-import edu.wpi.first.wpilibj.command.InstantCommand;
+
+import frc.robot.commands.FireToggle;
 
 /**
  * This class is the glue that binds the controls on the physical operator interface to the commands
@@ -20,6 +21,6 @@ public class OI {
 
   public OI() {
     xbox.getButton(Buttons.kBumperRight)
-        .whenPressed(new InstantCommand(Robot.cannon, Robot.cannon::toggle));
+        .whenPressed(new FireToggle());
   }
 }
