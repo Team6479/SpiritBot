@@ -23,5 +23,5 @@ public class RobotMap {
   public static final int CANNON_RELAY = 0;
 
   // Cannon Angle
-  public static final int ANGLE_CANNON = 2;
+  public static final int ANGLE_CANNON = 5;
 }
