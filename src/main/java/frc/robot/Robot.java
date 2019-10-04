@@ -52,6 +52,7 @@ public class Robot extends TimedRobot {
   public void robotPeriodic() {
     cannonAngle.setSpeed(SmartDashboard.getNumber("Cannon Speed", cannonAngle.DEFAULT_SPEED));
     SmartDashboard.putBoolean("Ready to Fire?", cannon.getOpen()); // red is danger
+    SmartDashboard.putNumber("Pressure", cannon.getPressure());
   }
 
   /**
