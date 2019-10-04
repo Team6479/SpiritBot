@@ -14,18 +14,30 @@ import frc.robot.RobotMap;
 /** Add your docs here. */
 public class CannonAngle extends Subsystem {
   private Spark angle;
+  private double speed;
+  public final double DEFAULT_SPEED = 0.3;
 
   public CannonAngle() {
     angle = new Spark(RobotMap.ANGLE_CANNON);
+    speed = DEFAULT_SPEED;
+  }
+
+  public double getSpeed() {
+    return speed;
+  }
+
+  public void setSpeed(double speed) {
+    this.speed = speed;
   }
 
   public void set(double right, double left) {
-    angle.set(right - left);
+    angle.set(speed * (right - left));
   }
 
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
+    setDefaultCommand(new frc.robot.commands.CannonAngle());
   }
 }
