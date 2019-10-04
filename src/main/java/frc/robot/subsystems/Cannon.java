@@ -7,6 +7,7 @@
 
 package frc.robot.subsystems;
 
+import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
@@ -14,9 +15,25 @@ import frc.robot.RobotMap;
 /** Add your docs here. */
 public class Cannon extends Subsystem {
   private Relay cannonRelay;
+  private AnalogInput pressureSensor;
 
   public Cannon() {
     cannonRelay = new Relay(RobotMap.CANNON_RELAY);
+    pressureSensor = new AnalogInput(RobotMap.PRESSURE_SENSOR);
+  }
+
+  public double getRawPressure() {
+    return pressureSensor.getVoltage();
+  }
+
+  /**
+   * This algorithm seems like it has magic numbers because it does.
+   *
+   * @see <a href="http://www.revrobotics.com/content/docs/REV-11-1107-DS.pdf">Spec Sheet</a>
+   */
+  public double getPressure() {
+    final double ANALOG_VOLTAGE = 5.0; // analog ports supply +5V
+    return ((getRawPressure() / ANALOG_VOLTAGE) - 0.1) / 0.004;
   }
 
   public void open() {

@@ -31,7 +31,6 @@ public class CannonAngle extends Subsystem {
   }
 
   public void set(double right, double left) {
-    System.out.println(speed * (right - left));
     angle.set(speed * (right - left));
   }
 
