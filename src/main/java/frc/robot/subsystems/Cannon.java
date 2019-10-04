@@ -28,6 +28,7 @@ public class Cannon extends Subsystem {
 
   /**
    * This algorithm seems like it has magic numbers because it does.
+   *
    * @see <a href="http://www.revrobotics.com/content/docs/REV-11-1107-DS.pdf">Spec Sheet</a>
    */
   public double getPressure() {
