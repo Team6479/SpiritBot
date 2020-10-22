@@ -25,6 +25,9 @@ public class RobotMap {
   // Cannon Angle
   public static final int ANGLE_CANNON = 5;
 
+  // LED Lighting
+  public static final int REV_BLINKIN = 4;
+
   // Sensors
   public static final int PRESSURE_SENSOR = 0; // analog
 }
