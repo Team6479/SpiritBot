@@ -1,22 +1,18 @@
-/*----------------------------------------------------------------------------*/
-/* Copyright (c) 2018 FIRST. All Rights Reserved.                             */
-/* Open Source Software - may be modified and shared by FRC teams. The code   */
-/* must be accompanied by the FIRST BSD license file in the root directory of */
-/* the project.                                                               */
-/*----------------------------------------------------------------------------*/
+// Copyright (c) FIRST and other WPILib contributors.
+// Open Source Software; you can modify and/or share it under the terms of
+// the WPILib BSD license file in the root directory of this project.
 
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
-import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
-import frc.robot.RobotMap;
-import frc.robot.commands.TeleopDrive;
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants.DrivetrainConstants;
 
 /** Add your docs here. */
-public class Drivetrain extends Subsystem {
+public class Drivetrain extends SubsystemBase {
   private SpeedController leftFront;
   private SpeedController rightFront;
   private SpeedController leftBack;
@@ -27,10 +23,10 @@ public class Drivetrain extends Subsystem {
   private DifferentialDrive drive;
 
   public Drivetrain() {
-    leftFront = new Spark(RobotMap.DRIVETRAIN_LEFT_FRONT);
-    rightFront = new Spark(RobotMap.DRIVETRAIN_RIGHT_FRONT);
-    leftBack = new Spark(RobotMap.DRIVETRAIN_LEFT_BACK);
-    rightBack = new Spark(RobotMap.DRIVETRAIN_RIGHT_BACK);
+    leftFront = new Spark(DrivetrainConstants.LEFT_FRONT);
+    rightFront = new Spark(DrivetrainConstants.RIGHT_FRONT);
+    leftBack = new Spark(DrivetrainConstants.LEFT_BACK);
+    rightBack = new Spark(DrivetrainConstants.RIGHT_BACK);
 
     left = new SpeedControllerGroup(leftFront, leftBack);
     right = new SpeedControllerGroup(rightFront, rightBack);
@@ -40,10 +36,5 @@ public class Drivetrain extends Subsystem {
 
   public DifferentialDrive getDrive() {
     return drive;
-  }
-
-  @Override
-  public void initDefaultCommand() {
-    setDefaultCommand(new TeleopDrive());
   }
 }

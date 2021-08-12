@@ -12,16 +12,16 @@ package frc.robot;
  * This provides flexibility changing wiring, makes checking the wiring easier and significantly
  * reduces the number of magic numbers floating around.
  */
-public class RobotMap {
-  // Drivetrain Motors
-  public static final int DRIVETRAIN_LEFT_FRONT = 0;
-  public static final int DRIVETRAIN_RIGHT_FRONT = 2;
-  public static final int DRIVETRAIN_LEFT_BACK = 1;
-  public static final int DRIVETRAIN_RIGHT_BACK = 3;
+public class Constants {
+  public class DrivetrainConstants {
+    public static final int LEFT_FRONT = 0;
+    public static final int RIGHT_FRONT = 2;
+    public static final int LEFT_BACK = 1;
+    public static final int RIGHT_BACK = 3;
+  }
 
-  // Solenoid
-  public static final int CANNON_RELAY = 0;
-
-  // Cannon Angle
-  public static final int ANGLE_CANNON = 2;
+  public class CannonConstants {
+    public static final int CANNON_RELAY = 0;
+    public static final int ANGLE_CANNON = 2;
+  }
 }

@@ -8,20 +8,19 @@ import com.team6479.lib.controllers.CBXboxController;
 
 import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.Drivetrain;
+import frc.robot.subsystems.CannonAngle;
 
-public class TeleopDrive extends CommandBase {
-  /** Creates a new TeleopDrive. */
+public class TeleopCannonAngle extends CommandBase {
+  /** Creates a new CannonAngle. */
 
-  private Drivetrain drivetrain;
   private CBXboxController xbox;
-  
+  private CannonAngle cannonAngle;
 
-  public TeleopDrive(Drivetrain drivetrain, CBXboxController xbox) {
-    this.drivetrain = drivetrain;
+  public TeleopCannonAngle(CannonAngle cannonAngle, CBXboxController xbox) {
     this.xbox = xbox;
-
-    addRequirements(this.drivetrain);
+    this.cannonAngle = cannonAngle;
+    // Use addRequirements() here to declare subsystem dependencies.
+    addRequirements(this.cannonAngle);
   }
 
   // Called when the command is initially scheduled.
@@ -31,8 +30,9 @@ public class TeleopDrive extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    drivetrain.getDrive()
-      .arcadeDrive(xbox.getY(Hand.kLeft), xbox.getX(Hand.kRight));
+    double left = xbox.getTriggerAxis(Hand.kLeft);
+    double right = xbox.getTriggerAxis(Hand.kRight);
+    cannonAngle.set(right, left);
   }
 
   // Called once the command ends or is interrupted.
