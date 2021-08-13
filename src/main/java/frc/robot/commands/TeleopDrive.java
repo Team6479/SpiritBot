@@ -4,9 +4,8 @@
 
 package frc.robot.commands;
 
-import com.team6479.lib.controllers.CBXboxController;
+import java.util.function.DoubleSupplier;
 
-import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Drivetrain;
 
@@ -14,14 +13,15 @@ public class TeleopDrive extends CommandBase {
   /** Creates a new TeleopDrive. */
 
   private Drivetrain drivetrain;
-  private CBXboxController xbox;
-  
+  private DoubleSupplier left;
+  private DoubleSupplier right;
 
-  public TeleopDrive(Drivetrain drivetrain, CBXboxController xbox) {
+  public TeleopDrive(Drivetrain drivetrain, DoubleSupplier left, DoubleSupplier right) {
     this.drivetrain = drivetrain;
-    this.xbox = xbox;
 
-    addRequirements(this.drivetrain);
+    this.right = right;
+    this.left = left;
+    addRequirements(drivetrain);
   }
 
   // Called when the command is initially scheduled.
@@ -32,7 +32,7 @@ public class TeleopDrive extends CommandBase {
   @Override
   public void execute() {
     drivetrain.getDrive()
-      .arcadeDrive(xbox.getY(Hand.kLeft), xbox.getX(Hand.kRight));
+      .arcadeDrive(left.getAsDouble(), right.getAsDouble());
   }
 
   // Called once the command ends or is interrupted.

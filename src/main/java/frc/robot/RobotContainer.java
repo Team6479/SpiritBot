@@ -8,6 +8,7 @@ import com.team6479.lib.controllers.CBXboxController;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.XboxController.Button;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
@@ -48,8 +49,14 @@ public class RobotContainer {
     xbox.getButton(Button.kBumperRight)
         .whenPressed(new InstantCommand(cannon::toggle, cannon));
 
-    drivetrain.setDefaultCommand(new TeleopDrive(drivetrain, xbox));
-    cannonAngle.setDefaultCommand(new TeleopCannonAngle(cannonAngle, xbox));
+    drivetrain.setDefaultCommand(new TeleopDrive(drivetrain, 
+      () -> xbox.getY(Hand.kLeft), 
+      () -> xbox.getX(Hand.kRight)
+    ));
+    cannonAngle.setDefaultCommand(new TeleopCannonAngle(cannonAngle, 
+      () -> xbox.getTriggerAxis(Hand.kLeft),
+      () -> xbox.getTriggerAxis(Hand.kRight)
+    ));
   }
 
   /**
