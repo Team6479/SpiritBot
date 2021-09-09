@@ -11,7 +11,9 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.XboxController.Button;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.ConditionalCommand;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
+import edu.wpi.first.wpilibj2.command.WaitCommand;
 import frc.robot.commands.TeleopCannonAngle;
 import frc.robot.commands.TeleopDrive;
 import frc.robot.subsystems.Cannon;
@@ -51,7 +53,7 @@ public class RobotContainer {
    */
   private void configureButtonBindings() {
     xbox.getButton(Button.kBumperRight)
-        .whenPressed(new InstantCommand(cannon::toggle, cannon));
+        .whenPressed(new ConditionalCommand(new InstantCommand(cannon::toggle, cannon), new WaitCommand(0), () -> xbox.getButton(Button.kBumperLeft).get()));
 
     drivetrain.setDefaultCommand(new TeleopDrive(drivetrain, 
       () -> xbox.getY(Hand.kLeft), 
