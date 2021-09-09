@@ -5,31 +5,32 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.Relay;
+import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.CannonConstants;
 
 /** Add your docs here. */
 public class Cannon extends SubsystemBase {
-  private Relay cannonRelay;
+  private Solenoid cannon;
 
   public Cannon() {
-    cannonRelay = new Relay(CannonConstants.CANNON_RELAY);
+    cannon = new Solenoid(CannonConstants.CANNON_RELAY);
   }
 
   public void open() {
-    cannonRelay.set(Relay.Value.kForward);
+    cannon.set(true);
   }
 
   public void close() {
-    cannonRelay.set(Relay.Value.kOff);
+    cannon.set(false);
   }
 
   public boolean getOpen() {
-    return cannonRelay.get() == Relay.Value.kForward;
+    return cannon.get() == true;
   }
 
   public void toggle() {
-    if (cannonRelay.get() == Relay.Value.kForward) {
+    if (cannon.get() == true) {
       this.close();
     } else {
       this.open();
